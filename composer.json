@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
+    "name": "the-karters-community/the-karters-community.com",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "Unofficial web site for the game license The Karters. Made with love by the community.",
+    "keywords": ["karters", "turbo", "charged", "site", "community"],
     "license": "MIT",
     "require": {
         "php": "^8.1",
