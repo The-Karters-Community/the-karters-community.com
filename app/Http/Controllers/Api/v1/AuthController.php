@@ -32,13 +32,19 @@ class AuthController extends AbstractApiController {
      * @throws ApiException
      */
     public function login(): JsonResponse {
-        // Retrieve credentials from request header.
+        /*
+         * Retrieve credentials from request header.
+         *
+         * Format of the X-API-CREDENTIALS header: identifier@key
+         * so we explode it at the @.
+         */
         $header = request()->headers->get('X-API-CREDENTIALS');
         $explodedHeader = explode('@', $header);
 
         $identifier = $explodedHeader[0] ?? null;
         $key = $explodedHeader[1] ?? null;
 
+        // If the header, the identifier or the key is null, throw an exception.
         if (is_null($header) || (is_null($identifier) || is_null($key))) {
             throw new ApiException("Missing X-Api-Credentials header.", 401);
         }
