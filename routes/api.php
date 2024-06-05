@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\TestController;
+use App\Http\Controllers\Api\v1\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,18 @@ use App\Http\Controllers\Api\v1\TestController;
 
 Route::group([
     'prefix' => 'v1/',
-    'as' => 'api.',
+    'as' => 'api.v1.',
     'controller' => TestController::class
 ], function() {
+    // Testing route.
     Route::get('/ping', 'ping')->name('ping');
+
+    Route::group([
+        'middleware' => 'api',
+        'as' => 'auth.',
+        'controller' => AuthController::class
+    ], function() {
+        Route::post('/login', 'login')->name('login');
+    });
 });
 
