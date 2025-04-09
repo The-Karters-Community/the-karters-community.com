@@ -1,0 +1,46 @@
+services:
+    php:
+        build:
+            context: ./docker/php
+        volumes:
+            - ./www:/var/www/html:rw
+            - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+        depends_on:
+            - db
+        networks:
+            - intern
+
+    apache:
+        build:
+            context: ./docker/apache
+        volumes:
+            - ./www:/var/www/html
+        depends_on:
+            - php
+        ports:
+            - "8000:80"
+        networks:
+            - intern
+            - proxy
+
+
+    db:
+        image: mysql:8.0
+        environment:
+            MYSQL_DATABASE: 'the-karters-community'
+            MYSQL_USER: 'userdb'
+            MYSQL_PASSWORD: 'userpass'
+            MYSQL_ROOT_PASSWORD: 'root'
+        volumes:
+            - ./data:/var/lib/mysql
+        ports:
+            - "8001:3306"
+        networks:
+            - intern
+
+networks:
+    intern:
+        name: the_karters_community_intern
+    proxy:
+        name: the_karters_community_proxy
+        driver: bridge
