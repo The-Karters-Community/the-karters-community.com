@@ -60,3 +60,25 @@ docker exec -ti the-karters-community-php-1 sh
 ```
 
 Do not forget to run `exit` to leave the CLI.
+
+## Development
+
+### First start-up
+
+After having built Docker container, you need to download all libraries used by the project.
+
+In the CLI, run the following commands:
+
+```shell
+composer install
+npm install
+```
+
+### Frontend
+
+The project is powered by Vite for building frontend assets. Vite included a hot reload feature: it will watch for file
+updates and will then automatically rebuild assets. You need to start it from the CLI:
+
+```shell
+npm run dev
+```
