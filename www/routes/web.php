@@ -1,6 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', fn() => Inertia::render('App'));
+Route::get('/', [HomeController::class, 'home']);
