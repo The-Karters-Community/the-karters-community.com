@@ -33,7 +33,7 @@ Simply run this command:
 docker compose up -d --remove-orphans
 ```
 
-Then, the project should be available at https://localhost:8000/.
+Then, the project should be available at http://localhost:8000/.
 
 You can stop all containers by using:
 
