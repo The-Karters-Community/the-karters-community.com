@@ -167,6 +167,10 @@ Later when the preproduction environment will be ready, the `main` branch will b
 On locale environments, we use the `develop` branch. This branch should ideally contain only working code and features.
 
 When working on a specific feature, please create a new branch based on `develop` named `feature/<your-feature>`.
+
+Please do **NOT** forget to pull `develop` before creating a new branch, and to pull **AND** rebase `develop` onto
+your feature branch before pushing!
+
 Create merge requests through command lines or directly with GitHub interface, I will check your commits and will merge
 them on `develop`. I might write some comments when I think it could be improved, or just to discuss a part of the
 code. :)
