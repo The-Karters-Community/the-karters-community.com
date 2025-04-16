@@ -1,5 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
-Route::get('/', fn() => inertia('App'));
+Route::get('/', fn() => Inertia::render('App'));
